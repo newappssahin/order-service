@@ -1,5 +1,3 @@
-order:
-  count: 27
 spring:
   flyway:
     schemas: orders
