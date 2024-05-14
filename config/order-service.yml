@@ -1,1 +1,2 @@
-order.count=27
+order:
+  count: 27
