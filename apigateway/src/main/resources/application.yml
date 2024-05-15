@@ -4,16 +4,8 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: note-service
-          uri: lb://note-service
-          predicates:
-            - Path=/v1/note/**
-        - id: notebook-service
-          uri: lb://notebook-service
-          predicates:
-            - Path=/v1/notebook/**
         - id: order-service
-          uri: lb://order-service
+          uri: localhost:9090
           predicates:
             - Path=/orders/**
       discovery:
@@ -41,3 +33,5 @@ management:
     sampling:
       probability:
         1.0
+jwt:
+  secret: VHKJMNnbfhbsjkdbVJHVkhbJBKJBsmfnbngygiyguFYVHJbkjnjnsjdnlkfn
