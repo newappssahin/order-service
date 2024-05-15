@@ -7,7 +7,6 @@ import com.melita.orderservice.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
     private final OrderService orderService;
     private final OrderMapper orderMapper;
-
-    @Value("${order.count}")
-    private String count;
-
-    @GetMapping
-    public String getOrder(){
-        return "UserCount:" + count;
-    }
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody @Valid OrderCreateRequest orderCreateRequest) {

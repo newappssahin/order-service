@@ -3,50 +3,11 @@ spring:
     name: order-service
   profiles:
     active: ${ACTIVE_PROFILES:local}
-  flyway:
-    schemas: orders
-    table: schema_version
-    baseline-on-migrate: true
-    validate-on-migrate: true
-    enabled: true
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/orders
-    username: root
-    password: test1234
-    hikari:
-      connection-timeout: 10000
-      minimum-idle: 1
-      maximum-pool-size: 50
-      idle-timeout: 10000
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-    virtual-host: /
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: youremail
-    password: yourpassword
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls: { enable: true }
   cloud:
     config:
       uri: http://localhost:8086
   config:
     import: optional:configserver:http://localhost:8086
-eureka:
-  client:
-    register-with-eureka: true
-    service-url:
-      defaultZone: ${EUREKA_URI:http://localhost:8012/eureka}
-  instance:
-    prefer-ip-address: true
 
-server:
-  port: 9090
+jwt:
+  secret: VHKJMNnbfhbsjkdbVJHVkhbJBKJBsmfnbngygiyguFYVHJbkjnjnsjdnlkfn

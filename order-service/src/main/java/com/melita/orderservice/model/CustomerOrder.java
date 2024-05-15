@@ -1,5 +1,6 @@
 package com.melita.orderservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +35,7 @@ public class CustomerOrder {
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "product_id")
+    @JsonBackReference
     private Product product;
 
     @Enumerated(EnumType.STRING)
